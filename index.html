@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/tokens/colors.css">
+<link rel="stylesheet" href="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/tokens/typography.css">
+<link rel="stylesheet" href="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/styles.css">
+<script src="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--sapBackgroundColor, #f5f6f7); font-family: "72", "72full", Arial, sans-serif; }
+  a { color: var(--sapLinkColor, #0064d9); }
+  a:hover { color: #0032a5; text-decoration: underline; }
+  input { font-family: inherit; }
+</style>
+</helmet>
+<div dir="rtl" style="min-height: 100vh; background: #f5f6f7; font-family: '72', '72full', Arial, sans-serif; color: #131e29; font-size: 14px; line-height: 1.5;">
+
+  <div style="max-width: 900px; margin: 0 auto; padding: 1rem 1rem 3rem 1rem; display: flex; flex-direction: column; gap: 1rem;">
+
+    <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 0 0.0625rem rgba(34,53,72,0.06), 0 0.125rem 0.5rem 0 rgba(34,53,72,0.1); padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 1rem;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <x-import component-from-global-scope="SAPHorizonDesignSystem_f0bcbb.Button" from="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js" design="emphasized" icon="copy" onClick="{{ duplicate }}" hint-size="170px,36px">שכפל דרישת תשלום</x-import>
+
+          <div style="display: flex; align-items: center; background: #eff1f2; border-radius: 8px; padding: 0.1875rem; gap: 0.1875rem;">
+            <sc-if value="{{ isInvoice }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ pickInvoice }}" style="border: none; border-radius: 6px; padding: 0 0.875rem; height: 1.875rem; font-family: '72', Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; background: #ffffff; color: #0064d9; box-shadow: 0 0.0625rem 0.125rem 0 rgba(34,53,72,0.16);">חשבונית</button>
+            </sc-if>
+            <sc-if value="{{ isDemand }}" hint-placeholder-val="{{ true }}">
+              <button type="button" onClick="{{ pickInvoice }}" style="border: none; border-radius: 6px; padding: 0 0.875rem; height: 1.875rem; font-family: '72', Arial, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; background: transparent; color: #556b82;">חשבונית</button>
+            </sc-if>
+            <sc-if value="{{ isDemand }}" hint-placeholder-val="{{ true }}">
+              <button type="button" onClick="{{ pickDemand }}" style="border: none; border-radius: 6px; padding: 0 0.875rem; height: 1.875rem; font-family: '72', Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; background: #ffffff; color: #0064d9; box-shadow: 0 0.0625rem 0.125rem 0 rgba(34,53,72,0.16);">דרישת תשלום</button>
+            </sc-if>
+            <sc-if value="{{ isInvoice }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ pickDemand }}" style="border: none; border-radius: 6px; padding: 0 0.875rem; height: 1.875rem; font-family: '72', Arial, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; background: transparent; color: #556b82;">דרישת תשלום</button>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 0.0625rem; background: #e5e5e5;"></div>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="color: #556b82; font-size: 13px; white-space: nowrap;">דרישת תשלום מספר</span>
+          <span style="font-family: '72Mono', monospace; font-size: 14px; font-weight: 700; color: #131e29;">10003</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <label for="custState" style="color: #556b82; font-size: 13px; white-space: nowrap;">מצב לקוח</label>
+          <select id="custState" value="{{ custState }}" onChange="{{ setCustState }}" style="height: 1.875rem; box-sizing: border-box; border: 0.0625rem solid #556b81; border-radius: 4px; padding: 0 0.5rem; background: #ffffff; font-family: '72', Arial, sans-serif; font-size: 13px; color: #131e29; cursor: pointer;">
+            <option value="לקוח ברישוי משלם">לקוח ברישוי משלם</option>
+            <option value="מכתב 30">מכתב 30</option>
+            <option value="מכתב 60">מכתב 60</option>
+          </select>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <label for="payDate" style="color: #556b82; font-size: 13px; white-space: nowrap;">תאריך תשלום</label>
+          <div style="display: flex; align-items: center; gap: 0.375rem; height: 1.875rem; box-sizing: border-box; border: 0.0625rem solid #556b81; border-radius: 4px; padding: 0 0.5rem; background: #ffffff;">
+            <input id="payDate" type="text" inputmode="numeric" placeholder="dd/mm/yyyy" maxlength="10" value="{{ payDate }}" onChange="{{ setPayDate }}" style="width: 6rem; border: none; outline: none; font-family: '72Mono', monospace; font-size: 13px; color: #131e29; background: transparent; direction: ltr; text-align: center;">
+            <x-import component-from-global-scope="SAPHorizonDesignSystem_f0bcbb.Icon" from="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js" name="appointment-2" size="0.875rem" hint-size="14px,14px"></x-import>
+          </div>
+        </div>
+      </div>
+
+      <sc-if value="{{ duplicated }}" hint-placeholder-val="{{ false }}">
+        <x-import component-from-global-scope="SAPHorizonDesignSystem_f0bcbb.MessageStrip" from="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js" design="positive" onClose="{{ dismissDuplicate }}" hint-size="100%,40px">{{ duplicateMessage }}</x-import>
+      </sc-if>
+    </div>
+
+    <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 0 0.0625rem rgba(34,53,72,0.06), 0 0.125rem 0.5rem 0 rgba(34,53,72,0.1); overflow: hidden;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1.25rem;">
+        <div style="font-size: 16px; font-weight: 700;">פריטים</div>
+        <div style="color: #556b82; font-family: '72Mono', monospace; font-size: 13px;">{{ rowCountLabel }}</div>
+        <div style="flex: 1;"></div>
+        <x-import component-from-global-scope="SAPHorizonDesignSystem_f0bcbb.Button" from="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js" design="transparent" icon="delete" onClick="{{ deleteRows }}" disabled="{{ noSelection }}" hint-size="110px,36px">מחק פריט</x-import>
+        <x-import component-from-global-scope="SAPHorizonDesignSystem_f0bcbb.Button" from="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js" design="transparent" icon="add" onClick="{{ addRow }}" hint-size="110px,36px">הוסף פריט</x-import>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+        <thead>
+          <tr style="background: #f5f6f7;">
+            <th style="text-align: right; padding: 0.375rem 0.5rem 0.375rem 1.25rem; border-bottom: 0.0625rem solid #e5e5e5; width: 2.25rem;">
+              <input type="checkbox" checked="{{ allSelected }}" onChange="{{ toggleAll }}" style="width: 0.875rem; height: 0.875rem; accent-color: #0064d9; cursor: pointer;">
+            </th>
+            <th style="text-align: right; padding: 0.375rem 0.5rem; font-weight: 700; color: #556b82; font-size: 13px; border-bottom: 0.0625rem solid #e5e5e5; white-space: nowrap; width: 2rem;">#</th>
+            <th style="text-align: right; padding: 0.375rem 0.5rem; font-weight: 700; color: #556b82; font-size: 13px; border-bottom: 0.0625rem solid #e5e5e5; white-space: nowrap;">קוד פריט</th>
+            <th style="text-align: right; padding: 0.375rem 0.75rem; font-weight: 700; color: #556b82; font-size: 13px; border-bottom: 0.0625rem solid #e5e5e5; width: 40%;">תיאור פריט</th>
+            <th style="text-align: right; padding: 0.375rem 0.75rem; font-weight: 700; color: #556b82; font-size: 13px; border-bottom: 0.0625rem solid #e5e5e5; white-space: nowrap;">כמות</th>
+            <th style="text-align: right; padding: 0.375rem 0.75rem; font-weight: 700; color: #556b82; font-size: 13px; border-bottom: 0.0625rem solid #e5e5e5; white-space: nowrap;">מחיר</th>
+            <th style="text-align: left; padding: 0.375rem 1.25rem; font-weight: 700; color: #556b82; font-size: 13px; border-bottom: 0.0625rem solid #e5e5e5; white-space: nowrap;">סה"כ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ rows }}" as="row" hint-placeholder-count="4">
+            <tr style="background: {{ row.bg }};">
+              <td style="padding: 0.25rem 0.5rem 0.25rem 1.25rem; border-bottom: 0.0625rem solid #e5e5e5; white-space: nowrap;">
+                <input type="checkbox" checked="{{ row.selected }}" onChange="{{ row.toggle }}" style="width: 0.875rem; height: 0.875rem; accent-color: #0064d9; cursor: pointer;">
+              </td>
+              <td style="padding: 0.4375rem 0.5rem; border-bottom: 0.0625rem solid #e5e5e5; font-family: '72Mono', monospace; font-size: 13px; color: #556b82; white-space: nowrap;">{{ row.num }}</td>
+              <td style="padding: 0.25rem 0.5rem; border-bottom: 0.0625rem solid #e5e5e5; white-space: nowrap;">
+                <div style="position: relative; display: inline-block;">
+                  <div style="display: flex; align-items: center; height: 1.625rem; box-sizing: border-box; border: 0.0625rem solid #556b81; border-radius: 4px; background: #ffffff; overflow: hidden;">
+                    <input type="text" value="{{ row.code }}" onChange="{{ row.setCode }}" onFocus="{{ row.openPickerOnFocus }}" placeholder="קוד" style="width: 6rem; border: none; outline: none; padding: 0 0.375rem; font-family: '72Mono', monospace; font-size: 13px; color: #0064d9; background: transparent; direction: ltr; text-align: right;">
+                    <button type="button" onClick="{{ row.openPicker }}" title="בחר מרשימה" style="display: flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; border: none; border-right: 0.0625rem solid #d9dee3; background: #f5f6f7; color: #0064d9; cursor: pointer;">
+                      <x-import component-from-global-scope="SAPHorizonDesignSystem_f0bcbb.Icon" from="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js" name="value-help" size="0.75rem" hint-size="12px,12px"></x-import>
+                    </button>
+                  </div>
+                  <sc-if value="{{ row.pickerOpen }}" hint-placeholder-val="{{ false }}">
+                    <div style="position: absolute; top: 1.875rem; right: 0; z-index: 20; min-width: 20rem; max-height: 14rem; overflow: auto; background: #ffffff; border-radius: 8px; box-shadow: 0 0.5rem 1rem 0 rgba(34,53,72,0.24); padding: 0.25rem 0;">
+                      <sc-for list="{{ row.options }}" as="opt" hint-placeholder-count="3">
+                        <div onClick="{{ opt.pick }}" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 13px;" style-hover="background: #eaecee;">
+                          <span style="font-family: '72Mono', monospace; color: #0064d9; direction: ltr; min-width: 5.5rem;">{{ opt.code }}</span>
+                          <span style="color: #131e29;">{{ opt.name }}</span>
+                        </div>
+                      </sc-for>
+                      <sc-if value="{{ row.noOptions }}" hint-placeholder-val="{{ false }}">
+                        <div style="padding: 0.5rem 0.75rem; color: #556b82; font-size: 13px;">לא נמצאו פריטים</div>
+                      </sc-if>
+                    </div>
+                  </sc-if>
+                </div>
+              </td>
+              <td style="padding: 0.25rem 0.75rem; border-bottom: 0.0625rem solid #e5e5e5;">
+                <input type="text" value="{{ row.name }}" onChange="{{ row.setName }}" placeholder="תיאור פריט" style="width: 100%; height: 1.625rem; box-sizing: border-box; border: 0.0625rem solid #556b81; border-radius: 4px; padding: 0 0.375rem; font-family: '72', Arial, sans-serif; font-size: 13px; font-weight: 600; color: #131e29; background: #ffffff;">
+              </td>
+              <td style="padding: 0.25rem 0.75rem; border-bottom: 0.0625rem solid #e5e5e5; text-align: right; white-space: nowrap;">
+                <input type="number" step="0.001" value="{{ row.qty }}" onChange="{{ row.setQty }}" style="width: 5.5rem; height: 1.625rem; box-sizing: border-box; border: 0.0625rem solid #556b81; border-radius: 4px; padding: 0 0.375rem; text-align: left; font-family: '72Mono', monospace; font-size: 13px; color: #131e29; background: #ffffff;">
+              </td>
+              <td style="padding: 0.25rem 0.75rem; border-bottom: 0.0625rem solid #e5e5e5; text-align: right; white-space: nowrap;">
+                <div style="display: inline-flex; align-items: center; gap: 0.25rem; height: 1.625rem; box-sizing: border-box; border: 0.0625rem solid #556b81; border-radius: 4px; padding: 0 0.375rem; background: #ffffff;">
+                  <input type="text" inputmode="decimal" value="{{ row.priceText }}" onChange="{{ row.setPrice }}" style="width: 4rem; border: none; outline: none; text-align: left; font-family: '72Mono', monospace; font-size: 13px; color: #131e29; background: transparent;">
+                  <span style="color: #556b82; font-size: 12px;">₪</span>
+                </div>
+              </td>
+              <td style="padding: 0.4375rem 1.25rem; border-bottom: 0.0625rem solid #e5e5e5; text-align: left; font-family: '72Mono', monospace; font-weight: 600; white-space: nowrap;">{{ row.total }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap;">
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <x-import component-from-global-scope="SAPHorizonDesignSystem_f0bcbb.Button" from="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js" design="emphasized" hint-size="80px,36px">עדכן</x-import>
+        <x-import component-from-global-scope="SAPHorizonDesignSystem_f0bcbb.Button" from="_ds/sap-desgin-f0bcbbaf-e145-41e6-8360-d978d1a46609/_ds_bundle.js" design="default" hint-size="80px,36px">ביטול</x-import>
+      </div>
+      <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 0 0 0.0625rem rgba(34,53,72,0.06), 0 0.125rem 0.5rem 0 rgba(34,53,72,0.1); padding: 0.75rem 1rem; width: 100%; max-width: 22rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 13px;">
+        <div style="display: flex; align-items: baseline; gap: 1rem;">
+          <div style="flex: 1; color: #556b82;">סה"כ לפני מע"מ</div>
+          <div style="font-family: '72Mono', monospace; font-size: 13px;">{{ subtotalLabel }}</div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="flex: 1; color: #556b82;">אחוז הנחה</div>
+          <div style="display: flex; align-items: center; gap: 0.375rem; border: 0.0625rem solid #556b81; border-radius: 4px; height: 1.75rem; padding: 0 0.5rem; background: #ffffff;">
+            <input type="number" min="0" max="100" step="0.5" value="{{ discount }}" onChange="{{ setDiscount }}" style="width: 3.25rem; border: none; outline: none; text-align: left; font-family: '72Mono', monospace; font-size: 14px; color: #131e29; background: transparent;">
+            <span style="color: #556b82; font-size: 13px;">%</span>
+          </div>
+          <div style="font-family: '72Mono', monospace; font-size: 13px; color: #aa0808; min-width: 5.5rem; text-align: left;">{{ discountLabel }}</div>
+        </div>
+
+        <div style="display: flex; align-items: baseline; gap: 1rem;">
+          <div style="color: #556b82;">מע"מ</div>
+          <div style="color: #556b82; font-family: '72Mono', monospace; font-size: 13px;">18%</div>
+          <div style="flex: 1;"></div>
+          <div style="font-family: '72Mono', monospace; font-size: 13px;">{{ vatAmountLabel }}</div>
+        </div>
+
+        <div style="height: 0.0625rem; background: #e5e5e5;"></div>
+
+        <div style="display: flex; align-items: baseline; gap: 1rem;">
+          <div style="flex: 1; font-weight: 700; font-size: 14px;">סה"כ</div>
+          <div style="font-family: '72Mono', monospace; font-size: 15px; font-weight: 700;">{{ grandTotalLabel }}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const BASE = [
+  { code: "2024", name: 'תמלוגים לשנת 2024 גמר חשבון', qty: "1.00", unit: "", price: "" },
+  { code: "12", name: 'בניין השמעת מוסיקה מוקלטת', qty: "1.00", unit: "", price: "" },
+  { code: "851", name: 'חנות אופנה: עד 100 מ"ר', qty: "0.028", unit: "", price: 2242 },
+  { code: "2025", name: 'תמלוגים לשנת 2025', qty: "1.00", unit: "", price: "" },
+  { code: "12", name: 'בניין השמעת מוסיקה מוקלטת', qty: "1.00", unit: "", price: "" },
+  { code: "851", name: 'חנות אופנה: עד 100 מ"ר', qty: "0.50", unit: "", price: 2242 },
+  { code: "2026", name: 'תמלוגים לשנת 2026', qty: "1.00", unit: "", price: "" },
+  { code: "12", name: 'בניין השמעת מוסיקה מוקלטת', qty: "1.00", unit: "", price: "" },
+  { code: "851", name: 'חנות אופנה: עד 100 מ"ר', qty: "0.50", unit: "", price: 2242 },
+  { code: "31", name: 'קיזוז בניין תקופת אי פעילות מבצע "עם כלביא"', qty: "-0.083", unit: "", price: 2242 },
+];
+
+const CATALOG = {};
+BASE.forEach(r => { CATALOG[r.code] = { name: r.name, price: r.price, unit: r.unit }; });
+[
+  { code: "SR-34110", name: "ייעוץ אבטחת מידע", price: 520, unit: "שעה" },
+  { code: "IT-70902", name: "מודול חתימה דיגיטלית", price: 1850, unit: "פריט" },
+].forEach(r => { CATALOG[r.code] = { name: r.name, price: r.price, unit: r.unit }; });
+
+const BLANK = { code: "", name: "", qty: "", price: "", unit: "" };
+
+class Component extends DCLogic {
+  state = { docType: "demand", discount: 5, rows: BASE.concat([Object.assign({}, BLANK)]), duplicated: false, seq: 1, sel: [], picker: null, payDate: "06/10/2026" };
+
+  money(n) {
+    return n.toLocaleString("he-IL", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " ₪";
+  }
+
+  /** keeps exactly one trailing blank row available for the next item */
+  normalize(rows) {
+    const out = rows.slice();
+    const last = out[out.length - 1];
+    if (!last || String(last.code || "").trim() !== "") out.push(Object.assign({}, BLANK));
+    return out;
+  }
+
+  renderVals() {
+    const vatRate = this.props.vatRate ?? 18;
+    const rows = this.state.rows;
+    const num = (v) => Number(v) || 0;
+    const group = (v) => {
+      const s = String(v === null || v === undefined ? "" : v);
+      if (s === "") return "";
+      const neg = s.charAt(0) === "-";
+      const body = neg ? s.slice(1) : s;
+      const parts = body.split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return (neg ? "-" : "") + parts.join(".");
+    };
+    const filled = (r) => String(r.code || "").trim() !== "";
+    const subtotal = rows.reduce((s, r) => s + (filled(r) ? num(r.qty) * num(r.price) : 0), 0);
+    const setField = (i, field) => (e) => {
+      const v = e.target.value;
+      this.setState(s => ({
+        rows: this.normalize(s.rows.map((r, j) => j === i ? Object.assign({}, r, { [field]: v }) : r)),
+      }));
+    };
+    const catalogList = Object.keys(CATALOG).map(c => ({ code: c, name: CATALOG[c].name, price: CATALOG[c].price, unit: CATALOG[c].unit }));
+    const applyPick = (i, o) => this.setState(s => ({
+      picker: null,
+      rows: this.normalize(s.rows.map((r, j) => j === i
+        ? Object.assign({}, r, { code: o.code, name: o.name, price: o.price, unit: o.unit, qty: String(r.qty || "").trim() ? r.qty : "1.00" })
+        : r)),
+    }));
+    const optionsFor = (i, r) => {
+      const q = String(r.code || "").trim().toLowerCase();
+      const nq = String(r.name || "").trim().toLowerCase();
+      const list = catalogList.filter(o => {
+        if (!q && !nq) return true;
+        const hay = (o.code + " " + o.name).toLowerCase();
+        return (q && hay.indexOf(q) !== -1) || (nq && o.name.toLowerCase().indexOf(nq) !== -1);
+      });
+      return list.map(o => ({ code: o.code, name: o.name, pick: () => applyPick(i, o) }));
+    };
+    const setCode = (i) => (e) => {
+      const v = e.target.value;
+      const hit = CATALOG[v.trim()] || CATALOG[v.trim().toUpperCase()];
+      this.setState(s => ({
+        picker: i,
+        rows: this.normalize(s.rows.map((r, j) => {
+          if (j !== i) return r;
+          const next = Object.assign({}, r, { code: v });
+          if (hit) { next.name = hit.name; next.price = hit.price; next.unit = hit.unit; }
+          if (String(v).trim() !== "" && !String(r.qty || "").trim()) next.qty = "1.00";
+          return next;
+        })),
+      }));
+    };
+    let seen = 0;
+    const sel = this.state.sel;
+    const selectable = rows.map((r, i) => i).filter(i => filled(rows[i]));
+    const discount = Number(this.state.discount) || 0;
+    const discountAmount = subtotal * discount / 100;
+    const afterDiscount = subtotal - discountAmount;
+    const vatAmount = afterDiscount * vatRate / 100;
+    const isInvoice = this.state.docType === "invoice";
+    const docNo = isInvoice ? "20260-0" + (441 + this.state.seq) : "DT-2026-0" + (118 + this.state.seq);
+
+    return {
+      isInvoice,
+      isDemand: !isInvoice,
+      docTitle: (isInvoice ? "חשבונית מס " : "דרישת תשלום ") + docNo,
+      pickInvoice: () => this.setState({ docType: "invoice" }),
+      pickDemand: () => this.setState({ docType: "demand" }),
+      duplicate: () => this.setState(s => ({ duplicated: true, seq: s.seq + 1 })),
+      dismissDuplicate: () => this.setState({ duplicated: false }),
+      duplicated: this.state.duplicated,
+      duplicateMessage: "המסמך שוכפל בהצלחה כטיוטה חדשה.",
+      rows: rows.map((r, i) => ({
+        num: filled(r) ? ++seen : "",
+        code: r.code,
+        name: r.name,
+        qty: r.qty,
+        price: r.price,
+        setCode: setCode(i),
+        setName: setField(i, "name"),
+        setQty: setField(i, "qty"),
+        priceText: group(r.price),
+        setPrice: (e) => {
+          const v = e.target.value.replace(/,/g, "");
+          if (v !== "" && !/^-?\d*\.?\d*$/.test(v)) return;
+          this.setState(s => ({ rows: this.normalize(s.rows.map((r2, j) => j === i ? Object.assign({}, r2, { price: v }) : r2)) }));
+        },
+        selected: sel.indexOf(i) !== -1,
+        bg: sel.indexOf(i) !== -1 ? "#e1f4ff" : "transparent",
+        pickerOpen: this.state.picker === i,
+        options: this.state.picker === i ? optionsFor(i, r) : [],
+        noOptions: this.state.picker === i && optionsFor(i, r).length === 0,
+        openPicker: () => this.setState(s => ({ picker: s.picker === i ? null : i })),
+        openPickerOnFocus: () => this.setState({ picker: i }),
+        toggle: () => this.setState(s => ({ sel: s.sel.indexOf(i) !== -1 ? s.sel.filter(x => x !== i) : s.sel.concat([i]) })),
+        total: filled(r) ? this.money(num(r.qty) * num(r.price)) : "",
+      })),
+      rowCountLabel: "(" + rows.filter(filled).length + ")",
+      noSelection: sel.length === 0,
+      allSelected: selectable.length > 0 && sel.length === selectable.length,
+      toggleAll: () => this.setState(s => ({ sel: s.sel.length === selectable.length ? [] : selectable })),
+      addRow: () => this.setState(s => {
+        if (!s.sel.length) return { rows: s.rows.concat([Object.assign({}, BLANK)]) };
+        const at = Math.max.apply(null, s.sel) + 1;
+        const rows = s.rows.slice(0, at).concat([Object.assign({}, BLANK)], s.rows.slice(at));
+        return { rows, sel: s.sel.map(i => i >= at ? i + 1 : i) };
+      }),
+      deleteRows: () => this.setState(s => ({
+        rows: this.normalize(s.rows.filter((r, i) => s.sel.indexOf(i) === -1)),
+        sel: [],
+      })),
+      custState: this.state.custState ?? "לקוח ברישוי משלם",
+      setCustState: (e) => this.setState({ custState: e.target.value }),
+      payDate: this.state.payDate,
+      setPayDate: (e) => {
+        const d = e.target.value.replace(/[^0-9]/g, "").slice(0, 8);
+        let v = d;
+        if (d.length > 4) v = d.slice(0, 2) + "/" + d.slice(2, 4) + "/" + d.slice(4);
+        else if (d.length > 2) v = d.slice(0, 2) + "/" + d.slice(2);
+        this.setState({ payDate: v });
+      },
+      discount: this.state.discount,
+      setDiscount: (e) => this.setState({ discount: e.target.value }),
+      subtotalLabel: this.money(subtotal),
+      discountLabel: discountAmount > 0 ? "- " + this.money(discountAmount) : this.money(0),
+      vatLabel: "מע\"מ " + vatRate + "%",
+      vatAmountLabel: this.money(vatAmount),
+      grandTotalLabel: this.money(afterDiscount + vatAmount),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

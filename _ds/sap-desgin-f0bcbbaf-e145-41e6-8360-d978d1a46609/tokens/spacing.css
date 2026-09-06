@@ -1,0 +1,37 @@
+/* SAP Horizon — Spacing, sizing & radii */
+:root{
+  /* ---- Content spacing scale ---- */
+  --sapContent_Space_Tiny:.5rem;   /* 8px */
+  --sapContent_Space_Small:1rem;   /* 16px */
+  --sapContent_Space_Medium:2rem;  /* 32px */
+  --sapContent_Space_Large:3rem;   /* 48px */
+  --sapContent_Gap:1rem;
+
+  /* ---- Element sizing ---- */
+  --sapElement_Height:2.25rem;            /* 36px cozy */
+  --sapElement_LineHeight:2.75rem;
+  --sapElement_Compact_Height:1.625rem;   /* 26px compact */
+  --sapElement_Compact_LineHeight:2rem;
+  --sapElement_Condensed_Height:1.375rem;
+  --sapElement_BorderWidth:.0625rem;      /* 1px */
+
+  /* ---- Corner radii ---- */
+  --sapElement_BorderCornerRadius:.75rem;   /* 12px — cards, tiles */
+  --sapButton_BorderCornerRadius:.5rem;     /* 8px — buttons */
+  --sapButton_TokenBorderCornerRadius:.375rem; /* 6px — tokens/tags */
+  --sapField_BorderCornerRadius:.25rem;     /* 4px — inputs */
+
+  /* ---- Shell spacing ---- */
+  --sapShell_Space_S:.5rem;
+  --sapShell_Gap_M:1rem;
+
+  /* ---- Semantic aliases ---- */
+  --space-xs:var(--sapContent_Space_Tiny);
+  --space-s:var(--sapContent_Space_Small);
+  --space-m:var(--sapContent_Space_Medium);
+  --space-l:var(--sapContent_Space_Large);
+  --radius-card:var(--sapElement_BorderCornerRadius);
+  --radius-button:var(--sapButton_BorderCornerRadius);
+  --radius-field:var(--sapField_BorderCornerRadius);
+  --control-height:var(--sapElement_Height);
+}

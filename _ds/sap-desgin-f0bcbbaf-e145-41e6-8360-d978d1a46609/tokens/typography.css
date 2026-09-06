@@ -1,0 +1,38 @@
+/* SAP Horizon — Typography
+   Base family is "72"; header/bold use 72 Bold; buttons use 72-SemiboldDuplex. */
+:root{
+  /* ---- Families ---- */
+  --sapFontFamily:"72","72full",Arial,Helvetica,sans-serif; /* @kind font */
+  --sapFontLightFamily:"72",Arial,Helvetica,sans-serif; /* @kind font */
+  --sapFontBoldFamily:"72",Arial,Helvetica,sans-serif; /* @kind font */
+  --sapFontSemiboldFamily:"72",Arial,Helvetica,sans-serif; /* @kind font */
+  --sapFontHeaderFamily:"72",Arial,Helvetica,sans-serif; /* @kind font */
+  --sapButton_FontFamily:"72-SemiboldDuplex","72",Arial,Helvetica,sans-serif; /* @kind font */
+  --sapContent_MonospaceFontFamily:"72Mono",monospace; /* @kind font */
+
+  /* ---- Weights ---- */
+  --sapFontLightWeight:300; /* @kind font */
+  --sapFontNormalWeight:400; /* @kind font */
+  --sapFontSemiboldWeight:600; /* @kind font */
+  --sapFontBoldWeight:700; /* @kind font */
+
+  /* ---- Sizes ---- */
+  --sapFontSize:.875rem;      /* 14px — body default */
+  --sapFontSmallSize:.75rem;  /* 12px */
+  --sapFontLargeSize:1rem;    /* 16px */
+  --sapFontHeader1Size:3rem;  /* 48px */
+  --sapFontHeader2Size:2rem;  /* 32px */
+  --sapFontHeader3Size:1.5rem;/* 24px */
+  --sapFontHeader4Size:1.25rem;/* 20px */
+  --sapFontHeader5Size:1rem;  /* 16px */
+  --sapFontHeader6Size:.875rem;/* 14px */
+
+  /* ---- Line heights ---- */
+  --sapContent_LineHeight:1.5; /* @kind other */
+
+  /* ---- Semantic aliases ---- */
+  --font-body:var(--sapFontFamily); /* @kind font */
+  --font-header:var(--sapFontHeaderFamily); /* @kind font */
+  --font-mono:var(--sapContent_MonospaceFontFamily); /* @kind font */
+  --text-body-size:var(--sapFontSize);
+}

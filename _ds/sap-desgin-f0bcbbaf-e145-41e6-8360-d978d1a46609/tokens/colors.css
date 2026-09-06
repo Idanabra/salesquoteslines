@@ -1,0 +1,124 @@
+/* SAP Horizon — Colors (Morning Horizon, light scheme)
+   Source: @sap-theming/theming-base-content · sap_horizon/css_variables.css */
+:root{
+  /* ---- Brand & interaction ---- */
+  --sapBrandColor:#0070f2;         /* SAP blue — emphasized actions */
+  --sapHighlightColor:#0064d9;     /* darker interactive blue */
+  --sapSelectedColor:#0064d9;
+  --sapActiveColor:#dee2e5;
+  --sapHoverColor:#eaecee;
+  --sapLinkColor:#0064d9;
+  --sapLink_Hover_Color:#0064d9;
+
+  /* ---- Base surfaces ---- */
+  --sapBaseColor:#fff;             /* base white */
+  --sapShellColor:#fff;
+  --sapBackgroundColor:#f5f6f7;    /* page background */
+  --sapShell_Background:#eff1f2;   /* shell / chrome */
+  --sapTileBackground:#fff;
+  --sapGroup_ContentBackground:#fff;
+
+  /* ---- Text ---- */
+  --sapTextColor:#131e29;          /* near-black ink */
+  --sapTitleColor:#131e29;
+  --sapContent_LabelColor:#556b82; /* muted label / secondary */
+  --sapContent_DisabledTextColor:rgba(19,30,41,.6);
+  --sapContent_ContrastTextColor:#fff;
+
+  /* ---- Borders ---- */
+  --sapShell_BorderColor:#d9d9d9;
+  --sapGroup_ContentBorderColor:#d9d9d9;
+  --sapList_BorderColor:#e5e5e5;
+  --sapField_BorderColor:#556b81;
+
+  /* ---- Semantic (foreground / text) ---- */
+  --sapNegativeColor:#aa0808;
+  --sapCriticalColor:#e76500;
+  --sapPositiveColor:#256f3a;
+  --sapInformativeColor:#0070f2;
+  --sapNeutralColor:#788fa6;
+  --sapNegativeTextColor:#aa0808;
+  --sapCriticalTextColor:#b44f00;
+  --sapPositiveTextColor:#256f3a;
+  --sapInformativeTextColor:#0064d9;
+  --sapNeutralTextColor:#131e29;
+
+  /* ---- Semantic (element / fill) ---- */
+  --sapNegativeElementColor:#f53232;
+  --sapCriticalElementColor:#e76500;
+  --sapPositiveElementColor:#30914c;
+  --sapInformativeElementColor:#0070f2;
+  --sapNeutralElementColor:#788fa6;
+
+  /* ---- Semantic (backgrounds) ---- */
+  --sapErrorColor:#aa0808;
+  --sapWarningColor:#e76500;
+  --sapSuccessColor:#256f3a;
+  --sapInformationColor:#0070f2;
+  --sapErrorBackground:#ffeaf4;
+  --sapWarningBackground:#fff8d6;
+  --sapSuccessBackground:#f5fae5;
+  --sapInformationBackground:#e1f4ff;
+  --sapNeutralBackground:#eff1f2;
+  --sapErrorBorderColor:#e90b0b;
+  --sapWarningBorderColor:#dd6100;
+  --sapSuccessBorderColor:#30914c;
+  --sapInformationBorderColor:#0070f2;
+  --sapNeutralBorderColor:#788fa6;
+
+  /* ---- Buttons ---- */
+  --sapButton_Background:#fff;
+  --sapButton_BorderColor:#bcc3ca;
+  --sapButton_TextColor:#0064d9;
+  --sapButton_Hover_Background:#eaecee;
+  --sapButton_Emphasized_Background:#0070f2;
+  --sapButton_Emphasized_TextColor:#fff;
+  --sapButton_Emphasized_Hover_Background:#0064d9;
+  --sapButton_Lite_Hover_Background:#eaecee;
+  --sapButton_Reject_Background:#ffd6e9;
+  --sapButton_Reject_BorderColor:#ffc2de;
+  --sapButton_Reject_TextColor:#aa0808;
+  --sapButton_Accept_Background:#ebf5cb;
+  --sapButton_Accept_BorderColor:#dbeda0;
+  --sapButton_Accept_TextColor:#256f3a;
+  --sapButton_Negative_Background:#f53232;
+  --sapButton_Critical_Background:#e76500;
+  --sapButton_Success_Background:#30914c;
+
+  /* ---- Fields ---- */
+  --sapField_Background:#fff;
+  --sapField_TextColor:#131e29;
+  --sapField_PlaceholderTextColor:#556b82;
+  --sapField_Hover_BorderColor:#0064d9;
+  --sapField_Focus_BorderColor:#0064d9;
+
+  /* ---- Content / icons ---- */
+  --sapContent_IconColor:#131e29;
+  --sapContent_NonInteractiveIconColor:#758ca4;
+  --sapContent_MarkerIconColor:#5d36ff;
+  --sapContent_FocusColor:#0032a5;
+  --sapContent_ImagePlaceholderBackground:#eaecee;
+
+  /* ---- AI / Joule assistant accent ---- */
+  --sapAssistant_Color1:#5d36ff;
+  --sapAssistant_Color2:#a100c2;
+  --sapAssistant_BackgroundGradient:linear-gradient(#5d36ff,#a100c2); /* @kind other */
+
+  /* ---- Shell category (chart / accent palette) ---- */
+  --sapShell_Category_1_Background:#0057d2;
+  --sapShell_Category_2_Background:#df1278;
+  --sapShell_Category_3_Background:#e76500;
+  --sapShell_Category_4_Background:#7800a4;
+  --sapShell_Category_6_Background:#07838f;
+  --sapShell_Category_8_Background:#188918;
+
+  /* ---- Semantic aliases (design-system friendly names) ---- */
+  --surface-page:var(--sapBackgroundColor);
+  --surface-card:var(--sapBaseColor);
+  --surface-shell:var(--sapShell_Background);
+  --text-main:var(--sapTextColor);
+  --text-label:var(--sapContent_LabelColor);
+  --text-link:var(--sapLinkColor);
+  --border-card:var(--sapGroup_ContentBorderColor);
+  --accent:var(--sapBrandColor);
+}

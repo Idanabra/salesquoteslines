@@ -1,0 +1,527 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/data/**",
+              "components/feedback/**",
+              "components/forms/**",
+              "components/foundation/**",
+              "components/navigation/**",
+              "ui_kits/sample-management/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:72|72-SemiboldDuplex|72Mono|SAP-icons))/i]",
+        "message": "Font not provided by the design system. Available: 72, 72-SemiboldDuplex, 72Mono, SAP-icons."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Avatar'] > JSXAttribute > JSXIdentifier[name!=/^(?:initials|icon|src|size|colorScheme|shape|style|key|ref|className|style|children)$/]",
+        "message": "<Avatar> doesn't accept that prop. Declared props: initials, icon, src, size, colorScheme, shape, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Avatar'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:XS|S|M|L|XL)$/]",
+        "message": "<Avatar> size must be one of 'XS' | 'S' | 'M' | 'L' | 'XL'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Avatar'] > JSXAttribute[name.name='shape'] > Literal[value!=/^(?:circle|square)$/]",
+        "message": "<Avatar> shape must be one of 'circle' | 'square'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|colorScheme|style|key|ref|className|style|children)$/]",
+        "message": "<Badge> doesn't accept that prop. Declared props: children, colorScheme, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='colorScheme'] > Literal[value!=/^(?:Neutral|Information|Success|Warning|Error)$/]",
+        "message": "<Badge> colorScheme must be one of 'Neutral' | 'Information' | 'Success' | 'Warning' | 'Error'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|design|icon|iconEnd|size|disabled|onClick|type|title|style|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, design, icon, iconEnd, size, disabled, onClick, type, title, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='design'] > Literal[value!=/^(?:default|emphasized|transparent|positive|negative|attention)$/]",
+        "message": "<Button> design must be one of 'default' | 'emphasized' | 'transparent' | 'positive' | 'negative' | 'attention'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:cozy|compact)$/]",
+        "message": "<Button> size must be one of 'cozy' | 'compact'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit|reset)$/]",
+        "message": "<Button> type must be one of 'button' | 'submit' | 'reset'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|subtitle|headerIcon|headerAction|children|style|bodyStyle|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: title, subtitle, headerIcon, headerAction, children, style, bodyStyle."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute > JSXIdentifier[name!=/^(?:checked|defaultChecked|onChange|label|disabled|id|style|key|ref|className|style|children)$/]",
+        "message": "<Checkbox> doesn't accept that prop. Declared props: checked, defaultChecked, onChange, label, disabled, id, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Dialog'] > JSXAttribute > JSXIdentifier[name!=/^(?:open|title|children|footer|onClose|width|style|key|ref|className|style|children)$/]",
+        "message": "<Dialog> doesn't accept that prop. Declared props: open, title, children, footer, onClose, width, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|color|title|style|className|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, color, title, style, className."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|defaultValue|onChange|placeholder|label|type|valueState|valueStateText|icon|disabled|readOnly|required|id|style|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: value, defaultValue, onChange, placeholder, label, type, valueState, valueStateText, icon, disabled, readOnly, required, id, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute[name.name='valueState'] > Literal[value!=/^(?:None|Error|Warning|Success|Information)$/]",
+        "message": "<Input> valueState must be one of 'None' | 'Error' | 'Warning' | 'Success' | 'Information'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MessageStrip'] > JSXAttribute > JSXIdentifier[name!=/^(?:design|children|onClose|showIcon|style|key|ref|className|style|children)$/]",
+        "message": "<MessageStrip> doesn't accept that prop. Declared props: design, children, onClose, showIcon, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MessageStrip'] > JSXAttribute[name.name='design'] > Literal[value!=/^(?:Information|Success|Warning|Error)$/]",
+        "message": "<MessageStrip> design must be one of 'Information' | 'Success' | 'Warning' | 'Error'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ObjectStatus'] > JSXAttribute > JSXIdentifier[name!=/^(?:state|icon|showIcon|children|style|key|ref|className|style|children)$/]",
+        "message": "<ObjectStatus> doesn't accept that prop. Declared props: state, icon, showIcon, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ObjectStatus'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:None|Positive|Negative|Critical|Information|Neutral)$/]",
+        "message": "<ObjectStatus> state must be one of 'None' | 'Positive' | 'Negative' | 'Critical' | 'Information' | 'Neutral'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SelectOption'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|label|key|ref|className|style|children)$/]",
+        "message": "<SelectOption> doesn't accept that prop. Declared props: value, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ShellBarAction'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|title|onClick|key|ref|className|style|children)$/]",
+        "message": "<ShellBarAction> doesn't accept that prop. Declared props: icon, title, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Switch'] > JSXAttribute > JSXIdentifier[name!=/^(?:checked|defaultChecked|onChange|disabled|label|id|style|key|ref|className|style|children)$/]",
+        "message": "<Switch> doesn't accept that prop. Declared props: checked, defaultChecked, onChange, disabled, label, id, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Token'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|onRemove|selected|style|key|ref|className|style|children)$/]",
+        "message": "<Token> doesn't accept that prop. Declared props: children, onRemove, selected, style."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Avatar": {
+        "replaces": []
+      },
+      "Badge": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "Checkbox": {
+        "replaces": []
+      },
+      "Dialog": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "MessageStrip": {
+        "replaces": []
+      },
+      "ObjectStatus": {
+        "replaces": []
+      },
+      "SelectOption": {
+        "replaces": []
+      },
+      "ShellBarAction": {
+        "replaces": []
+      },
+      "Switch": {
+        "replaces": []
+      },
+      "Token": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--border-card",
+      "--control-height",
+      "--font-body",
+      "--font-header",
+      "--font-mono",
+      "--radius-button",
+      "--radius-card",
+      "--radius-field",
+      "--sapActiveColor",
+      "--sapAssistant_BackgroundGradient",
+      "--sapAssistant_Color1",
+      "--sapAssistant_Color2",
+      "--sapBackgroundColor",
+      "--sapBaseColor",
+      "--sapBrandColor",
+      "--sapButton_Accept_Background",
+      "--sapButton_Accept_BorderColor",
+      "--sapButton_Accept_TextColor",
+      "--sapButton_Background",
+      "--sapButton_BorderColor",
+      "--sapButton_BorderCornerRadius",
+      "--sapButton_Critical_Background",
+      "--sapButton_Emphasized_Background",
+      "--sapButton_Emphasized_Hover_Background",
+      "--sapButton_Emphasized_TextColor",
+      "--sapButton_FontFamily",
+      "--sapButton_Hover_Background",
+      "--sapButton_Lite_Hover_Background",
+      "--sapButton_Negative_Background",
+      "--sapButton_Reject_Background",
+      "--sapButton_Reject_BorderColor",
+      "--sapButton_Reject_TextColor",
+      "--sapButton_Success_Background",
+      "--sapButton_TextColor",
+      "--sapButton_TokenBorderCornerRadius",
+      "--sapContent_ContrastTextColor",
+      "--sapContent_DisabledTextColor",
+      "--sapContent_FocusColor",
+      "--sapContent_FocusStyle",
+      "--sapContent_FocusWidth",
+      "--sapContent_Gap",
+      "--sapContent_HeaderShadow",
+      "--sapContent_IconColor",
+      "--sapContent_ImagePlaceholderBackground",
+      "--sapContent_Interaction_Shadow",
+      "--sapContent_LabelColor",
+      "--sapContent_LineHeight",
+      "--sapContent_MarkerIconColor",
+      "--sapContent_MonospaceFontFamily",
+      "--sapContent_NonInteractiveIconColor",
+      "--sapContent_Selected_Shadow",
+      "--sapContent_Shadow0",
+      "--sapContent_Shadow1",
+      "--sapContent_Shadow2",
+      "--sapContent_Shadow3",
+      "--sapContent_ShadowColor",
+      "--sapContent_Space_Large",
+      "--sapContent_Space_Medium",
+      "--sapContent_Space_Small",
+      "--sapContent_Space_Tiny",
+      "--sapCriticalColor",
+      "--sapCriticalElementColor",
+      "--sapCriticalTextColor",
+      "--sapElement_BorderCornerRadius",
+      "--sapElement_BorderWidth",
+      "--sapElement_Compact_Height",
+      "--sapElement_Compact_LineHeight",
+      "--sapElement_Condensed_Height",
+      "--sapElement_Height",
+      "--sapElement_LineHeight",
+      "--sapErrorBackground",
+      "--sapErrorBorderColor",
+      "--sapErrorColor",
+      "--sapField_Background",
+      "--sapField_BorderColor",
+      "--sapField_BorderCornerRadius",
+      "--sapField_Focus_BorderColor",
+      "--sapField_Hover_BorderColor",
+      "--sapField_PlaceholderTextColor",
+      "--sapField_Shadow",
+      "--sapField_TextColor",
+      "--sapFontBoldFamily",
+      "--sapFontBoldWeight",
+      "--sapFontFamily",
+      "--sapFontHeader1Size",
+      "--sapFontHeader2Size",
+      "--sapFontHeader3Size",
+      "--sapFontHeader4Size",
+      "--sapFontHeader5Size",
+      "--sapFontHeader6Size",
+      "--sapFontHeaderFamily",
+      "--sapFontLargeSize",
+      "--sapFontLightFamily",
+      "--sapFontLightWeight",
+      "--sapFontNormalWeight",
+      "--sapFontSemiboldFamily",
+      "--sapFontSemiboldWeight",
+      "--sapFontSize",
+      "--sapFontSmallSize",
+      "--sapGroup_ContentBackground",
+      "--sapGroup_ContentBorderColor",
+      "--sapHighlightColor",
+      "--sapHoverColor",
+      "--sapInformationBackground",
+      "--sapInformationBorderColor",
+      "--sapInformationColor",
+      "--sapInformativeColor",
+      "--sapInformativeElementColor",
+      "--sapInformativeTextColor",
+      "--sapLinkColor",
+      "--sapLink_Hover_Color",
+      "--sapList_BorderColor",
+      "--sapNegativeColor",
+      "--sapNegativeElementColor",
+      "--sapNegativeTextColor",
+      "--sapNeutralBackground",
+      "--sapNeutralBorderColor",
+      "--sapNeutralColor",
+      "--sapNeutralElementColor",
+      "--sapNeutralTextColor",
+      "--sapPositiveColor",
+      "--sapPositiveElementColor",
+      "--sapPositiveTextColor",
+      "--sapSelectedColor",
+      "--sapShellColor",
+      "--sapShell_Background",
+      "--sapShell_BorderColor",
+      "--sapShell_Category_1_Background",
+      "--sapShell_Category_2_Background",
+      "--sapShell_Category_3_Background",
+      "--sapShell_Category_4_Background",
+      "--sapShell_Category_6_Background",
+      "--sapShell_Category_8_Background",
+      "--sapShell_Gap_M",
+      "--sapShell_Shadow",
+      "--sapShell_Space_S",
+      "--sapSuccessBackground",
+      "--sapSuccessBorderColor",
+      "--sapSuccessColor",
+      "--sapTextColor",
+      "--sapTileBackground",
+      "--sapTitleColor",
+      "--sapWarningBackground",
+      "--sapWarningBorderColor",
+      "--sapWarningColor",
+      "--shadow-overlay",
+      "--shadow-popover",
+      "--shadow-raised",
+      "--shadow-rest",
+      "--space-l",
+      "--space-m",
+      "--space-s",
+      "--space-xs",
+      "--surface-card",
+      "--surface-page",
+      "--surface-shell",
+      "--text-body-size",
+      "--text-label",
+      "--text-link",
+      "--text-main"
+    ],
+    "tokenKinds": {
+      "--sapBrandColor": "color",
+      "--sapHighlightColor": "color",
+      "--sapSelectedColor": "color",
+      "--sapActiveColor": "color",
+      "--sapHoverColor": "color",
+      "--sapLinkColor": "color",
+      "--sapLink_Hover_Color": "color",
+      "--sapBaseColor": "color",
+      "--sapShellColor": "color",
+      "--sapBackgroundColor": "color",
+      "--sapShell_Background": "color",
+      "--sapTileBackground": "color",
+      "--sapGroup_ContentBackground": "color",
+      "--sapTextColor": "color",
+      "--sapTitleColor": "color",
+      "--sapContent_LabelColor": "color",
+      "--sapContent_DisabledTextColor": "color",
+      "--sapContent_ContrastTextColor": "color",
+      "--sapShell_BorderColor": "color",
+      "--sapGroup_ContentBorderColor": "color",
+      "--sapList_BorderColor": "color",
+      "--sapField_BorderColor": "color",
+      "--sapNegativeColor": "color",
+      "--sapCriticalColor": "color",
+      "--sapPositiveColor": "color",
+      "--sapInformativeColor": "color",
+      "--sapNeutralColor": "color",
+      "--sapNegativeTextColor": "color",
+      "--sapCriticalTextColor": "color",
+      "--sapPositiveTextColor": "color",
+      "--sapInformativeTextColor": "color",
+      "--sapNeutralTextColor": "color",
+      "--sapNegativeElementColor": "color",
+      "--sapCriticalElementColor": "color",
+      "--sapPositiveElementColor": "color",
+      "--sapInformativeElementColor": "color",
+      "--sapNeutralElementColor": "color",
+      "--sapErrorColor": "color",
+      "--sapWarningColor": "color",
+      "--sapSuccessColor": "color",
+      "--sapInformationColor": "color",
+      "--sapErrorBackground": "color",
+      "--sapWarningBackground": "color",
+      "--sapSuccessBackground": "color",
+      "--sapInformationBackground": "color",
+      "--sapNeutralBackground": "color",
+      "--sapErrorBorderColor": "color",
+      "--sapWarningBorderColor": "color",
+      "--sapSuccessBorderColor": "color",
+      "--sapInformationBorderColor": "color",
+      "--sapNeutralBorderColor": "color",
+      "--sapButton_Background": "color",
+      "--sapButton_BorderColor": "color",
+      "--sapButton_TextColor": "color",
+      "--sapButton_Hover_Background": "color",
+      "--sapButton_Emphasized_Background": "color",
+      "--sapButton_Emphasized_TextColor": "color",
+      "--sapButton_Emphasized_Hover_Background": "color",
+      "--sapButton_Lite_Hover_Background": "color",
+      "--sapButton_Reject_Background": "color",
+      "--sapButton_Reject_BorderColor": "color",
+      "--sapButton_Reject_TextColor": "color",
+      "--sapButton_Accept_Background": "color",
+      "--sapButton_Accept_BorderColor": "color",
+      "--sapButton_Accept_TextColor": "color",
+      "--sapButton_Negative_Background": "color",
+      "--sapButton_Critical_Background": "color",
+      "--sapButton_Success_Background": "color",
+      "--sapField_Background": "color",
+      "--sapField_TextColor": "color",
+      "--sapField_PlaceholderTextColor": "color",
+      "--sapField_Hover_BorderColor": "color",
+      "--sapField_Focus_BorderColor": "color",
+      "--sapContent_IconColor": "color",
+      "--sapContent_NonInteractiveIconColor": "color",
+      "--sapContent_MarkerIconColor": "color",
+      "--sapContent_FocusColor": "color",
+      "--sapContent_ImagePlaceholderBackground": "color",
+      "--sapAssistant_Color1": "color",
+      "--sapAssistant_Color2": "color",
+      "--sapAssistant_BackgroundGradient": "other",
+      "--sapShell_Category_1_Background": "color",
+      "--sapShell_Category_2_Background": "color",
+      "--sapShell_Category_3_Background": "color",
+      "--sapShell_Category_4_Background": "color",
+      "--sapShell_Category_6_Background": "color",
+      "--sapShell_Category_8_Background": "color",
+      "--surface-page": "color",
+      "--surface-card": "color",
+      "--surface-shell": "color",
+      "--text-main": "font",
+      "--text-label": "font",
+      "--text-link": "font",
+      "--border-card": "color",
+      "--accent": "color",
+      "--sapFontFamily": "font",
+      "--sapFontLightFamily": "font",
+      "--sapFontBoldFamily": "font",
+      "--sapFontSemiboldFamily": "font",
+      "--sapFontHeaderFamily": "font",
+      "--sapButton_FontFamily": "font",
+      "--sapContent_MonospaceFontFamily": "font",
+      "--sapFontLightWeight": "font",
+      "--sapFontNormalWeight": "font",
+      "--sapFontSemiboldWeight": "font",
+      "--sapFontBoldWeight": "font",
+      "--sapFontSize": "spacing",
+      "--sapFontSmallSize": "spacing",
+      "--sapFontLargeSize": "spacing",
+      "--sapFontHeader1Size": "spacing",
+      "--sapFontHeader2Size": "spacing",
+      "--sapFontHeader3Size": "spacing",
+      "--sapFontHeader4Size": "spacing",
+      "--sapFontHeader5Size": "spacing",
+      "--sapFontHeader6Size": "spacing",
+      "--sapContent_LineHeight": "other",
+      "--font-body": "font",
+      "--font-header": "font",
+      "--font-mono": "font",
+      "--text-body-size": "font",
+      "--sapContent_Space_Tiny": "spacing",
+      "--sapContent_Space_Small": "spacing",
+      "--sapContent_Space_Medium": "spacing",
+      "--sapContent_Space_Large": "spacing",
+      "--sapContent_Gap": "spacing",
+      "--sapElement_Height": "spacing",
+      "--sapElement_LineHeight": "spacing",
+      "--sapElement_Compact_Height": "spacing",
+      "--sapElement_Compact_LineHeight": "spacing",
+      "--sapElement_Condensed_Height": "spacing",
+      "--sapElement_BorderWidth": "spacing",
+      "--sapElement_BorderCornerRadius": "spacing",
+      "--sapButton_BorderCornerRadius": "spacing",
+      "--sapButton_TokenBorderCornerRadius": "spacing",
+      "--sapField_BorderCornerRadius": "spacing",
+      "--sapShell_Space_S": "spacing",
+      "--sapShell_Gap_M": "spacing",
+      "--space-xs": "spacing",
+      "--space-s": "spacing",
+      "--space-m": "spacing",
+      "--space-l": "spacing",
+      "--radius-card": "radius",
+      "--radius-button": "radius",
+      "--radius-field": "radius",
+      "--control-height": "color",
+      "--sapContent_ShadowColor": "shadow",
+      "--sapContent_Shadow0": "shadow",
+      "--sapContent_Shadow1": "shadow",
+      "--sapContent_Shadow2": "shadow",
+      "--sapContent_Shadow3": "shadow",
+      "--sapShell_Shadow": "shadow",
+      "--sapContent_HeaderShadow": "shadow",
+      "--sapContent_Interaction_Shadow": "shadow",
+      "--sapContent_Selected_Shadow": "shadow",
+      "--sapField_Shadow": "shadow",
+      "--sapContent_FocusWidth": "spacing",
+      "--sapContent_FocusStyle": "other",
+      "--shadow-rest": "shadow",
+      "--shadow-raised": "shadow",
+      "--shadow-overlay": "shadow",
+      "--shadow-popover": "shadow"
+    },
+    "fontFamilies": [
+      "72",
+      "72-SemiboldDuplex",
+      "72Mono",
+      "SAP-icons"
+    ]
+  }
+}

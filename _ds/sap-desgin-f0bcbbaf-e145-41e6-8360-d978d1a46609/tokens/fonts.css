@@ -1,0 +1,9 @@
+/* SAP "72" typeface + SAP-icons icon font (Apache-2.0, @sap-theming/theming-base-content) */
+@font-face{font-family:"72";font-style:normal;font-weight:300;font-display:swap;src:url("../assets/fonts/72-Light.woff2") format("woff2")}
+@font-face{font-family:"72";font-style:normal;font-weight:400;font-display:swap;src:url("../assets/fonts/72-Regular.woff2") format("woff2")}
+@font-face{font-family:"72";font-style:normal;font-weight:600;font-display:swap;src:url("../assets/fonts/72-Semibold.woff2") format("woff2")}
+@font-face{font-family:"72";font-style:normal;font-weight:700;font-display:swap;src:url("../assets/fonts/72-Bold.woff2") format("woff2")}
+@font-face{font-family:"72-SemiboldDuplex";font-style:normal;font-weight:600;font-display:swap;src:url("../assets/fonts/72-SemiboldDuplex.woff2") format("woff2")}
+@font-face{font-family:"72Mono";font-style:normal;font-weight:400;font-display:swap;src:url("../assets/fonts/72Mono-Regular.woff2") format("woff2")}
+@font-face{font-family:"72Mono";font-style:normal;font-weight:700;font-display:swap;src:url("../assets/fonts/72Mono-Bold.woff2") format("woff2")}
+@font-face{font-family:"SAP-icons";font-style:normal;font-weight:normal;font-display:block;src:url("../assets/fonts/SAP-icons.woff2") format("woff2"),url("../assets/fonts/SAP-icons.ttf") format("truetype")}
